@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Reklamo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="theme.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="brand">
+            <span class="brand-mark">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+            </span>
+            <span class="brand-name">E-Reklamo</span>
+        </div>
+
+        <h1>Welcome to E-Reklamo</h1>
+
+        <p class="description">
+            Before you proceed, please select your role
+        </p>
+
+        <div class="login-options">
+
+            <!-- TANOD -->
+            <div class="login-card admin">
+                <div class="icon icon-blue">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+
+                <h2>Responder (Tanod)</h2>
+
+                <p>
+                    Login as a responder to manage complaints,
+                    view reports, and assist the community.
+                </p>
+
+                <a href="tanodlogin.html" class="login-btn">
+                    Log in as Tanod
+                </a>
+            </div>
+
+            <!-- COMPLAINANT -->
+            <div class="login-card worker">
+                <div class="icon icon-green">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+                </div>
+
+                <h2>Complainant</h2>
+
+                <p>
+                    Submit a complaint and ticket your concerns
+                    about New Lower Bicutan.
+                </p>
+
+                <a href="complaintpage.html" class="login-btn">
+                    Proceed to Complaint Submission
+                </a>
+            </div>
+
+        </div>
+
+        <!-- Emergency strip: the full list lives on the complaint page -->
+        <div class="emergency">
+            <span class="emergency-dot" aria-hidden="true"></span>
+            <p>
+                <strong>In an emergency, don't file a complaint.</strong>
+                Call <a href="tel:911">911</a> or the Taguig Command Center at
+                <a href="tel:0287893200">(02) 8789-3200</a>.
+            </p>
+            <a href="complaintpage.html#hotlines" class="emergency-link">All hotlines</a>
+        </div>
+
+        <footer>E-Reklamo · <a href="https://en.wikipedia.org/wiki/New_Lower_Bicutan">New Lower Bicutan</a></footer>
+
+    </div>
+
+</body>
+</html>

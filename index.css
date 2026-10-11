@@ -1,0 +1,226 @@
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 0;
+}
+
+.container {
+    width: 90%;
+    max-width: 1000px;
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    padding: 48px 50px 36px;
+    box-shadow: var(--shadow-md);
+    text-align: center;
+}
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 26px;
+}
+
+.brand-name {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text);
+}
+
+h1 {
+    font-size: 30px;
+    color: var(--text);
+    margin-bottom: 8px;
+}
+
+.description {
+    color: var(--muted);
+    margin-bottom: 36px;
+}
+
+.login-options {
+    display: flex;
+    gap: 28px;
+    justify-content: center;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 34px 26px 28px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.login-card:hover {
+    transform: translateY(-4px);
+    border-color: #cbd5e1;
+    box-shadow: var(--shadow-md);
+}
+
+.icon {
+    display: grid;
+    place-items: center;
+    width: 64px;
+    height: 64px;
+    margin-bottom: 18px;
+    border-radius: 18px;
+}
+
+.icon svg {
+    width: 30px;
+    height: 30px;
+}
+
+.icon-blue {
+    background: var(--primary-tint);
+    color: var(--primary);
+}
+
+.icon-green {
+    background: var(--green-tint);
+    color: var(--green-dark);
+}
+
+.login-card h2 {
+    font-size: 19px;
+    color: var(--text-2);
+    margin-bottom: 10px;
+}
+
+.login-card p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 26px;
+}
+
+.login-btn {
+    display: block;
+    width: 100%;
+    margin-top: auto;
+    text-decoration: none;
+    background: var(--primary);
+    color: white;
+    padding: 12px;
+    border-radius: var(--radius-sm);
+    font-size: 15px;
+    font-weight: 600;
+    transition: background 0.2s, transform 0.15s;
+}
+
+.login-btn:hover {
+    background: var(--primary-hover);
+}
+
+.login-btn:active {
+    transform: translateY(1px);
+}
+
+/* ---------- emergency strip ---------- */
+.emergency {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 32px;
+    padding: 14px 18px;
+    border: 1px solid #fecaca;
+    border-radius: var(--radius-sm);
+    background: #fef2f2;
+    color: #7f1d1d;
+    font-size: 13px;
+    line-height: 1.5;
+    text-align: left;
+}
+
+.emergency p {
+    flex: 1;
+}
+
+.emergency a {
+    color: var(--red-dark);
+    font-weight: 600;
+}
+
+.emergency-dot {
+    position: relative;
+    width: 10px;
+    height: 10px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: var(--red);
+}
+
+.emergency-dot::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: var(--red);
+    animation: dot-ping 1.8s ease-out infinite;
+}
+
+@keyframes dot-ping {
+    0%   { transform: scale(1); opacity: 0.6; }
+    100% { transform: scale(3); opacity: 0; }
+}
+
+.emergency-link {
+    flex-shrink: 0;
+    padding: 7px 14px;
+    border-radius: 8px;
+    background: white;
+    border: 1px solid #fecaca;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.emergency-link:hover {
+    background: var(--red-tint);
+}
+
+footer {
+    margin-top: 28px;
+    color: var(--subtle);
+    font-size: 13px;
+}
+
+footer a {
+    color: inherit;
+}
+
+footer a:hover {
+    color: var(--primary);
+}
+
+@media (max-width: 700px) {
+    .container {
+        padding: 32px 20px 28px;
+    }
+
+    .login-options {
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+    }
+
+    .login-card {
+        max-width: 360px;
+    }
+
+    .emergency {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .emergency-link {
+        align-self: stretch;
+        text-align: center;
+    }
+}

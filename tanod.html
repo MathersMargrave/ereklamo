@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tanod Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="theme.css">
+    <link rel="stylesheet" href="hotlines.css">
+    <link rel="stylesheet" href="tanod.css">
+    <script src="auth.js"></script>
+</head>
+<body>
+
+    <div class="sidebar">
+
+        <div class="sidebar-brand">
+            <span class="brand-mark">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+            </span>
+            <h2>Tanod Dashboard</h2>
+        </div>
+
+        <nav class="nav" aria-label="Dashboard sections">
+
+            <a href="#pending" class="active">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                Pending Tickets
+            </a>
+
+            <a href="#resolved">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/></svg>
+                Resolved Tickets
+            </a>
+
+            <a href="#hotlines">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                Emergency Hotlines
+            </a>
+
+            <a href="#profile">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                My Profile
+            </a>
+
+        </nav>
+
+        <a href="index.html" class="logout">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5M21 12H9"/></svg>
+            Logout
+        </a>
+
+    </div>
+
+    <div class="main">
+
+        <div class="header">
+            <h1>Responder Dashboard</h1>
+            <p>Manage complaints and assist the community.</p>
+        </div>
+
+        <div class="stats">
+            <div class="stat stat-pending">
+                <span class="stat-label">Pending</span>
+                <strong id="statPending">–</strong>
+            </div>
+            <div class="stat stat-resolved">
+                <span class="stat-label">Resolved</span>
+                <strong id="statResolved">–</strong>
+            </div>
+        </div>
+
+        <div class="section" id="pending">
+            <h2>Pending Tickets <span class="count" id="pendingCount"></span></h2>
+            <div id="pendingList"><div class="empty">Loading tickets...</div></div>
+        </div>
+
+        <div class="section" id="resolved">
+            <h2>Resolved Tickets <span class="count" id="resolvedCount"></span></h2>
+            <div id="resolvedList"><div class="empty">Loading tickets...</div></div>
+        </div>
+
+        <div class="section" id="hotlines">
+            <h2>Emergency Hotlines</h2>
+            <p class="section-sub">Taguig City and national numbers for quick reference. Tap a number to call, or copy it.</p>
+            <div data-hotlines></div>
+        </div>
+
+        <div class="section" id="profile">
+
+            <h2>My Profile</h2>
+
+            <div class="profile">
+
+                <div class="profile-picture" id="profilePicture"></div>
+
+                <div class="profile-info">
+                    <h3 id="profileName">Loading...</h3>
+                    <p><strong>Tanod Number:</strong> <span id="profileNumber"></span></p>
+                    <p><strong>Position:</strong> <span id="profilePosition"></span></p>
+                    <p><strong>Department:</strong> <span id="profileDepartment"></span></p>
+                    <p><strong>Email:</strong> <span id="profileEmail"></span></p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="hotlines.js"></script>
+    <script src="tanod.js"></script>
+</body>
+</html>
