@@ -77,6 +77,22 @@
     color: var(--red-dark);
 }
 
+/* ---------- Halftone wave behind the page header ---------- */
+body::after {
+    content: "";
+    position: fixed;
+    top: -190px;
+    right: -150px;
+    width: 760px;
+    height: 760px;
+    z-index: -1;
+    background: url("halftone.png") center / contain no-repeat;
+    opacity: 0.5;
+    pointer-events: none;
+    -webkit-mask-image: linear-gradient(215deg, #000 38%, transparent 78%);
+    mask-image: linear-gradient(215deg, #000 38%, transparent 78%);
+}
+
 /* ---------- Main ---------- */
 .main {
     margin-left: 250px;
@@ -89,7 +105,8 @@
 }
 
 .header h1 {
-    font-size: 28px;
+    font-size: 34px;
+    font-weight: 800;
     color: var(--text);
     margin-bottom: 6px;
 }
@@ -129,7 +146,8 @@
 }
 
 .stat strong {
-    font-size: 26px;
+    font-family: var(--font-display);
+    font-size: 30px;
     color: var(--text);
     font-variant-numeric: tabular-nums;
 }
@@ -147,7 +165,7 @@
 .section h2 {
     margin-bottom: 20px;
     color: var(--text);
-    font-size: 20px;
+    font-size: 22px;
 }
 
 .section-sub {
@@ -361,6 +379,14 @@
     .main {
         margin-left: 0;
         padding: 20px;
+    }
+
+    body::after {
+        width: 380px;
+        height: 380px;
+        top: -100px;
+        right: -120px;
+        opacity: 0.45;
     }
 
     .section {

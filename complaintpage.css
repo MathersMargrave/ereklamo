@@ -3,10 +3,11 @@
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(255, 255, 255, 0.92);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border);
+    box-shadow: 0 6px 16px -12px rgba(23, 32, 51, 0.25);
 }
 
 .topbar-inner {
@@ -28,7 +29,8 @@
 }
 
 .brand-name {
-    font-size: 17px;
+    font-family: var(--font-display);
+    font-size: 18px;
     font-weight: 700;
     color: var(--text);
 }
@@ -44,11 +46,12 @@
     align-items: center;
     gap: 7px;
     padding: 8px 12px;
-    border-radius: 8px;
+    border-radius: var(--radius-sm);
     color: var(--text-2);
     font-size: 14px;
     font-weight: 600;
     text-decoration: none;
+    white-space: nowrap;
     transition: background 0.2s, color 0.2s;
 }
 
@@ -92,26 +95,49 @@
 }
 
 /* ---------- Hero ---------- */
+/* the main sheet: two more sheets behind it, halftone wave rising from the corner */
 .hero {
+    position: relative;
+    overflow: hidden;
     background: var(--surface);
     border-radius: var(--radius-lg);
-    padding: 52px 50px 40px;
-    box-shadow: var(--shadow-md);
-    text-align: center;
-    margin-bottom: 24px;
+    padding: 56px 50px 40px;
+    box-shadow: var(--stack);
+    text-align: left;
+    margin-bottom: 44px;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    top: -170px;
+    right: -150px;
+    width: 640px;
+    height: 640px;
+    background: url("halftone.png") center / contain no-repeat;
+    opacity: 0.9;
+    pointer-events: none;
+    -webkit-mask-image: linear-gradient(205deg, #000 30%, transparent 62%);
+    mask-image: linear-gradient(205deg, #000 30%, transparent 62%);
+}
+
+.hero > * {
+    position: relative;
+    z-index: 1;
 }
 
 .hero h1 {
-    font-size: 34px;
+    font-size: clamp(38px, 6vw, 56px);
+    font-weight: 800;
     color: var(--text);
-    margin-bottom: 12px;
+    margin-bottom: 14px;
 }
 
 .hero p {
     color: var(--muted);
     line-height: 1.7;
-    max-width: 52ch;
-    margin: 0 auto 26px;
+    max-width: 46ch;
+    margin: 0 0 26px;
 }
 
 .hero strong {
@@ -122,7 +148,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 /* how it works: a real sequence, so it is numbered */
@@ -160,7 +186,7 @@
     width: 28px;
     height: 28px;
     margin-bottom: 4px;
-    border-radius: 50%;
+    border-radius: 8px;
     background: var(--primary-tint);
     color: var(--primary);
     font-size: 13px;
@@ -177,14 +203,13 @@
 }
 
 .section h2 {
-    text-align: center;
-    font-size: 24px;
+    font-size: 26px;
+    font-weight: 700;
     color: var(--text);
     margin-bottom: 6px;
 }
 
 .subtitle {
-    text-align: center;
     color: var(--muted);
     font-size: 14px;
     margin-bottom: 24px;
@@ -254,9 +279,9 @@ textarea {
     font-size: 14px;
     margin-bottom: 18px;
     outline: none;
-    background: white;
+    background: var(--field-bg);
     color: var(--text);
-    transition: border-color 0.2s, box-shadow 0.2s;
+    transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
 }
 
 input::placeholder,
@@ -267,6 +292,7 @@ textarea::placeholder {
 input:focus,
 select:focus,
 textarea:focus {
+    background: white;
     border-color: var(--primary);
     box-shadow: 0 0 0 3px var(--primary-ring);
 }
@@ -289,7 +315,7 @@ input[type="file"]::file-selector-button {
     margin-right: 12px;
     padding: 7px 14px;
     border: none;
-    border-radius: 8px;
+    border-radius: 6px;
     background: var(--primary-tint);
     color: var(--primary);
     font-weight: 600;
@@ -397,6 +423,16 @@ textarea {
 
     .hero {
         padding-top: 38px;
+        box-shadow: var(--shadow-md);
+        margin-bottom: 24px;
+    }
+
+    .hero::after {
+        width: 440px;
+        height: 440px;
+        top: -140px;
+        right: -170px;
+        opacity: 0.7;
     }
 
     .steps {
