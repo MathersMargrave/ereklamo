@@ -1,0 +1,3 @@
+Put sqlite-jdbc-3.41.2.2.jar in this folder.
+Download: https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.41.2.2/sqlite-jdbc-3.41.2.2.jar
+thank you 

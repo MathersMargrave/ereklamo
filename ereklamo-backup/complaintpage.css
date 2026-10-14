@@ -1,0 +1,664 @@
+/* ---------- Top bar ---------- */
+.topbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 6px 16px -12px rgba(23, 32, 51, 0.25);
+}
+
+.topbar-inner {
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.brand-name {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text);
+}
+
+.topnav {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.topnav a {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 8px 12px;
+    border-radius: var(--radius-sm);
+    color: var(--text-2);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.2s, color 0.2s;
+}
+
+.topnav a:hover {
+    background: var(--primary-tint);
+    color: var(--primary);
+}
+
+.topnav svg {
+    width: 15px;
+    height: 15px;
+}
+
+.topnav .nav-alert {
+    background: var(--red-tint);
+    color: var(--red-dark);
+}
+
+.topnav .nav-alert:hover {
+    background: var(--red);
+    color: white;
+}
+
+.topnav .nav-quiet {
+    color: var(--muted);
+    font-weight: 500;
+}
+
+/* ---------- Layout ---------- */
+.page {
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 32px 0 40px;
+}
+
+#home,
+#complaint,
+#hotlines {
+    scroll-margin-top: 84px;
+}
+
+/* ---------- Hero ---------- */
+/* the main sheet: two more sheets behind it, halftone wave rising from the corner */
+.hero {
+    position: relative;
+    overflow: hidden;
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    padding: 56px 50px 40px;
+    box-shadow: var(--stack);
+    text-align: left;
+    margin-bottom: 44px;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    top: -170px;
+    right: -150px;
+    width: 640px;
+    height: 640px;
+    background: url("halftone.png") center / contain no-repeat;
+    opacity: 0.9;
+    pointer-events: none;
+    -webkit-mask-image: linear-gradient(205deg, #000 30%, transparent 62%);
+    mask-image: linear-gradient(205deg, #000 30%, transparent 62%);
+}
+
+.hero > * {
+    position: relative;
+    z-index: 1;
+}
+
+.hero h1 {
+    font-size: clamp(38px, 6vw, 56px);
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 14px;
+}
+
+.hero p {
+    color: var(--muted);
+    line-height: 1.7;
+    max-width: 46ch;
+    margin: 0 0 26px;
+}
+
+.hero strong {
+    color: var(--primary);
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: flex-start;
+}
+
+/* how it works: a real sequence, so it is numbered */
+.steps {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 40px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border-soft);
+    text-align: left;
+}
+
+.steps li {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.steps strong {
+    color: var(--text);
+    font-size: 15px;
+}
+
+.steps li > span:last-child {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.step-num {
+    display: grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    margin-bottom: 4px;
+    border-radius: 8px;
+    background: var(--primary-tint);
+    color: var(--primary);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* ---------- Sections ---------- */
+.section {
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    padding: 40px 48px;
+    box-shadow: var(--shadow-md);
+    margin-bottom: 24px;
+}
+
+.section h2 {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 6px;
+}
+
+.subtitle {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 24px;
+}
+
+/* emergency reminder above the form */
+.notice {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    margin-bottom: 26px;
+    padding: 13px 16px;
+    border: 1px solid #fecaca;
+    border-radius: var(--radius-sm);
+    background: #fef2f2;
+    color: #7f1d1d;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.notice svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    color: var(--red);
+}
+
+.notice a {
+    color: var(--red-dark);
+    font-weight: 600;
+}
+
+/* ---------- Form ---------- */
+form {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 18px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+label {
+    font-weight: 600;
+    color: var(--text-2);
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    margin-bottom: 18px;
+    outline: none;
+    background: var(--field-bg);
+    color: var(--text);
+    transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--subtle);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    background: white;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--primary-ring);
+}
+
+input:user-invalid,
+select:user-invalid,
+textarea:user-invalid {
+    border-color: var(--red);
+}
+
+input[type="file"] {
+    padding: 8px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 6px;
+    background: var(--field-bg);
+}
+
+input[type="file"]::file-selector-button {
+    margin-right: 12px;
+    padding: 7px 14px;
+    border: none;
+    border-radius: 6px;
+    background: var(--primary-tint);
+    color: var(--primary);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+input[type="file"]::file-selector-button:hover {
+    background: var(--primary);
+    color: white;
+}
+
+.hint {
+    margin-bottom: 18px;
+    font-size: 12px;
+    color: var(--subtle);
+}
+
+textarea {
+    resize: vertical;
+    line-height: 1.6;
+}
+
+.submit-btn {
+    width: 100%;
+    margin-top: 4px;
+    padding: 13px;
+    border: none;
+    border-radius: var(--radius-sm);
+    background: var(--primary);
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+}
+
+.submit-btn:hover {
+    background: var(--primary-hover);
+}
+
+.submit-btn:active {
+    transform: translateY(1px);
+}
+
+.submit-btn:disabled {
+    background: var(--subtle);
+    cursor: default;
+}
+
+.back-link {
+    display: block;
+    text-align: center;
+    margin-top: 22px;
+    color: var(--subtle);
+    font-size: 13px;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.back-link:hover {
+    color: var(--primary);
+}
+
+.page-footer {
+    text-align: center;
+    color: var(--subtle);
+    font-size: 13px;
+    padding-top: 8px;
+}
+
+/* ---------- Toast ---------- */
+.popup-toast {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    max-width: calc(100% - 40px);
+    background: var(--primary);
+    color: white;
+    padding: 14px 22px;
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-lg);
+    font-size: 14px;
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 1000;
+}
+
+.popup-toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.popup-toast.error {
+    background: #991b1b;
+}
+
+@media (max-width: 700px) {
+    .hero,
+    .section {
+        padding: 30px 20px;
+    }
+
+    .hero {
+        padding-top: 38px;
+        box-shadow: var(--shadow-md);
+        margin-bottom: 24px;
+    }
+
+    .hero::after {
+        width: 440px;
+        height: 440px;
+        top: -140px;
+        right: -170px;
+        opacity: 0.7;
+    }
+
+    .steps {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .topnav .nav-quiet {
+        display: none;
+    }
+
+    .brand-name {
+        display: none;
+    }
+}
+
+/* ---------- Ticket confirmation (pure CSS) ----------
+   The ticket is shown with :target. The page only has to point the address
+   to #ticketOverlay; CSS does the showing, the animation and the closing
+   (the Done button and the dark backdrop are plain links back to #complaint). */
+.ticket-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.5);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 2000;
+}
+
+.ticket-overlay:target {
+    display: flex;
+    animation: fade-in 0.25s ease both;
+}
+
+.ticket-backdrop {
+    position: absolute;
+    inset: 0;
+}
+
+.ticket {
+    position: relative;
+    width: 100%;
+    max-width: 380px;
+    background: white;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+}
+
+.ticket-overlay:target .ticket {
+    animation: pop 0.4s ease both;
+}
+
+.ticket-head {
+    background: var(--primary);
+    color: white;
+    text-align: center;
+    padding: 14px;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.ticket-body {
+    padding: 28px 30px 30px;
+    text-align: center;
+}
+
+.check {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 8px;
+}
+
+.check-circle,
+.check-mark {
+    stroke: var(--primary);
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 150;
+    stroke-dashoffset: 150;
+}
+
+.ticket-overlay:target .check-circle {
+    animation: draw 0.6s ease 0.25s forwards;
+}
+
+.ticket-overlay:target .check-mark {
+    animation: draw 0.4s ease 0.75s forwards;
+}
+
+.ticket-body h3 {
+    color: var(--text);
+    font-size: 20px;
+    margin-bottom: 4px;
+}
+
+.ticket-sub {
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 18px;
+}
+
+.ticket-number {
+    font-family: "Courier New", monospace;
+    font-size: 26px;
+    font-weight: bold;
+    color: var(--primary);
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+.ticket-status {
+    display: inline-block;
+    background: var(--primary-tint);
+    color: var(--primary);
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 18px;
+}
+
+.ticket-rows {
+    border-top: 2px dashed var(--border);
+    padding-top: 14px;
+    margin-bottom: 14px;
+    text-align: left;
+}
+
+.ticket-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    font-size: 13px;
+    padding: 5px 0;
+    opacity: 0;
+    transform: translateY(6px);
+}
+
+.ticket-row span {
+    color: var(--muted);
+}
+
+.ticket-row strong {
+    color: var(--text);
+    text-align: right;
+    word-break: break-word;
+}
+
+.ticket-overlay:target .ticket-row {
+    animation: rise 0.35s ease forwards;
+}
+
+.ticket-overlay:target .ticket-row:nth-child(1) { animation-delay: 0.55s; }
+.ticket-overlay:target .ticket-row:nth-child(2) { animation-delay: 0.65s; }
+.ticket-overlay:target .ticket-row:nth-child(3) { animation-delay: 0.75s; }
+.ticket-overlay:target .ticket-row:nth-child(4) { animation-delay: 0.85s; }
+
+.ticket-note {
+    color: var(--subtle);
+    font-size: 12px;
+    min-height: 16px;
+}
+
+.ticket-note:empty {
+    display: none;
+}
+
+.ticket-close {
+    display: block;
+    margin-top: 16px;
+    padding: 13px;
+    border-radius: var(--radius-sm);
+    background: var(--primary);
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.ticket-close:hover {
+    background: var(--primary-hover);
+}
+
+@keyframes fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes pop {
+    from { opacity: 0; transform: translateY(30px) scale(0.96); }
+    to   { opacity: 1; transform: none; }
+}
+
+@keyframes draw {
+    to { stroke-dashoffset: 0; }
+}
+
+@keyframes rise {
+    to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .ticket-overlay:target,
+    .ticket-overlay:target .ticket,
+    .ticket-overlay:target .ticket-row,
+    .ticket-overlay:target .check-circle,
+    .ticket-overlay:target .check-mark {
+        animation: none !important;
+    }
+    .ticket-row {
+        opacity: 1;
+        transform: none;
+    }
+    .check-circle,
+    .check-mark {
+        stroke-dashoffset: 0;
+    }
+}

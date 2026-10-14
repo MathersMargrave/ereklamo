@@ -1,0 +1,416 @@
+/* =====================================================================
+   Emergency hotlines component
+   Rendered by hotlines.js into any element with  data-hotlines.
+   Needs theme.css.
+   ===================================================================== */
+
+/* ---------- featured: national 911 ---------- */
+.hl-featured {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    padding: 22px 26px 22px 30px;
+    margin-bottom: 18px;
+    border-radius: var(--radius-md);
+    background: var(--red);
+    color: white;
+}
+
+/* the one big moment: soft rings pulsing out of the phone */
+.hl-pulse {
+    position: relative;
+    width: 56px;
+    height: 56px;
+    flex-shrink: 0;
+}
+
+.hl-pulse::before,
+.hl-pulse::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    animation: hl-ring 2.4s ease-out infinite;
+}
+
+.hl-pulse::after {
+    animation-delay: 1.2s;
+}
+
+.hl-pulse-core {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: white;
+    color: var(--red);
+}
+
+.hl-pulse-core svg {
+    width: 26px;
+    height: 26px;
+    animation: hl-idle 2.4s ease-in-out infinite;
+}
+
+.hl-featured-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.hl-live {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-bottom: 6px;
+    padding: 3px 10px;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.16);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.hl-live i {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #fff;
+    animation: hl-blink 1.4s ease-in-out infinite;
+}
+
+.hl-featured h3 {
+    font-size: 18px;
+    margin-bottom: 4px;
+}
+
+.hl-featured p {
+    font-size: 13px;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.88);
+    max-width: 46ch;
+}
+
+.hl-featured-call {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    padding: 13px 22px;
+    border-radius: var(--radius-sm);
+    background: white;
+    color: var(--red-dark);
+    font-size: 18px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.hl-featured-call svg {
+    width: 20px;
+    height: 20px;
+}
+
+.hl-featured-call:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(127, 29, 29, 0.35);
+}
+
+.hl-featured-call:hover svg,
+.hl-featured-call:focus-visible svg {
+    animation: hl-shake 0.7s ease;
+}
+
+/* ---------- agency cards ---------- */
+.hl-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+}
+
+.hl-card {
+    --accent: var(--primary);
+    --tint: var(--primary-tint);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 18px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background: white;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.hl-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--accent);
+    box-shadow: var(--shadow-md);
+}
+
+.hl-blue   { --accent: var(--primary); --tint: var(--primary-tint); }
+.hl-red    { --accent: var(--red);     --tint: var(--red-tint); }
+.hl-green  { --accent: var(--green);   --tint: var(--green-tint); }
+.hl-teal   { --accent: var(--teal);    --tint: var(--teal-tint); }
+.hl-indigo { --accent: var(--indigo);  --tint: var(--indigo-tint); }
+.hl-amber  { --accent: var(--amber);   --tint: var(--amber-tint); }
+
+.hl-head {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+}
+
+.hl-icon {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    border-radius: 12px;
+    background: var(--tint);
+    color: var(--accent);
+    transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.hl-icon svg {
+    width: 22px;
+    height: 22px;
+}
+
+.hl-card:hover .hl-icon {
+    background: var(--accent);
+    color: white;
+    transform: rotate(-6deg) scale(1.06);
+}
+
+.hl-head h3 {
+    font-size: 16px;
+    color: var(--text);
+    margin-bottom: 3px;
+}
+
+.hl-head p {
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--muted);
+}
+
+/* ---------- number rows ---------- */
+.hl-numbers {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: auto;
+}
+
+.hl-row {
+    display: flex;
+    gap: 8px;
+}
+
+.hl-num {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-sm);
+    background: var(--field-bg);
+    color: var(--text);
+    text-decoration: none;
+    transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.hl-num:hover {
+    background: var(--tint);
+    border-color: var(--tint);
+    color: var(--accent);
+}
+
+.hl-phone {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    color: var(--accent);
+    transform-origin: 50% 60%;
+}
+
+.hl-num:hover .hl-phone,
+.hl-num:focus-visible .hl-phone {
+    animation: hl-shake 0.7s ease;
+}
+
+.hl-digits {
+    flex: 1;
+    font-size: 14px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+}
+
+.hl-row:first-child .hl-digits {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.hl-kind {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--subtle);
+    white-space: nowrap;
+}
+
+/* ---------- copy button ---------- */
+.hl-copy {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    flex-shrink: 0;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: white;
+    color: var(--muted);
+    cursor: pointer;
+    transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+
+.hl-copy:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+.hl-copy svg {
+    width: 18px;
+    height: 18px;
+}
+
+.hl-copy .hl-ico-check {
+    display: none;
+}
+
+.hl-copy.copied {
+    background: var(--green-tint);
+    border-color: var(--green);
+    color: var(--green-dark);
+}
+
+.hl-copy.copied .hl-ico-copy {
+    display: none;
+}
+
+.hl-copy.copied .hl-ico-check {
+    display: block;
+    animation: hl-pop 0.35s ease;
+}
+
+/* ---------- footnote + toast ---------- */
+.hl-note {
+    margin-top: 20px;
+    font-size: 12px;
+    line-height: 1.6;
+    color: var(--muted);
+}
+
+.hl-note a {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.hl-toast {
+    position: fixed;
+    left: 50%;
+    bottom: 24px;
+    z-index: 3000;
+    padding: 10px 18px;
+    border-radius: 999px;
+    background: #0f172a;
+    color: white;
+    font-size: 13px;
+    font-weight: 500;
+    box-shadow: var(--shadow-lg);
+    opacity: 0;
+    transform: translate(-50%, 16px);
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.hl-toast.show {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+/* ---------- reveal when scrolled into view ---------- */
+/* "backwards" keeps each card hidden during its delay, then hands control
+   back to normal styles so the hover lift still works afterwards. */
+.hl-ready .hl-card:not(.in) {
+    opacity: 0;
+}
+
+.hl-ready .hl-card.in {
+    animation: hl-rise 0.5s ease backwards;
+    animation-delay: var(--d, 0ms);
+}
+
+/* ---------- keyframes ---------- */
+@keyframes hl-ring {
+    0%   { transform: scale(1);   opacity: 0.7; }
+    100% { transform: scale(2.2); opacity: 0; }
+}
+
+@keyframes hl-idle {
+    0%, 30%, 100% { transform: rotate(0); }
+    5%  { transform: rotate(-14deg); }
+    10% { transform: rotate(12deg); }
+    15% { transform: rotate(-8deg); }
+    20% { transform: rotate(6deg); }
+    25% { transform: rotate(-3deg); }
+}
+
+@keyframes hl-shake {
+    0%, 100% { transform: rotate(0); }
+    15% { transform: rotate(-16deg); }
+    30% { transform: rotate(14deg); }
+    45% { transform: rotate(-10deg); }
+    60% { transform: rotate(8deg); }
+    75% { transform: rotate(-4deg); }
+}
+
+@keyframes hl-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.25; }
+}
+
+@keyframes hl-pop {
+    0%   { transform: scale(0.4); }
+    70%  { transform: scale(1.25); }
+    100% { transform: scale(1); }
+}
+
+@keyframes hl-rise {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: none; }
+}
+
+@media (max-width: 600px) {
+    .hl-featured {
+        flex-wrap: wrap;
+        padding: 20px;
+    }
+
+    .hl-featured-text {
+        flex-basis: calc(100% - 80px);
+    }
+
+    .hl-featured-call {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .hl-grid {
+        grid-template-columns: 1fr;
+    }
+}
